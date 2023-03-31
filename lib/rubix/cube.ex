@@ -23,9 +23,26 @@ defmodule Rubix.Cube do
   ]
 
   def new, do: %__MODULE__{}
+
   def face(cube, face) do
     for {{f, r, c}, color} <- cube.cells, reduce: [] do
       acc -> if (f == face), do: [color | acc], else: acc
     end
+  end
+
+  def row(cube, face, row) do
+    for {{f, r, c}, color} <- cube.cells, reduce: [] do
+      acc -> if ((f == face) && (r == row)), do: [color | acc], else: acc
+    end
+  end
+
+  def col(cube, face, col) do
+    for {{f, r, c}, color} <- cube.cells, reduce: [] do
+      acc -> if ((f == face) && (c == col)), do: [color | acc], else: acc
+    end
+  end
+
+  def cell(cube, face, row, col) do
+    Map.get(cube.cells, {face, row, col})
   end
 end

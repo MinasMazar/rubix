@@ -1,4 +1,6 @@
 defmodule Rubix.Cube do
+  defdelegate rotate(cube, rotation), to: Rubix.Cube.Rotations
+
   defstruct [
     cells: %{
       {:up, 1, 1} => "R",  {:up, 1, 2} => "R",  {:up, 1, 3} => "R", 
@@ -25,24 +27,32 @@ defmodule Rubix.Cube do
   def new, do: %__MODULE__{}
 
   def face(cube, face) do
-    for {{f, r, c}, color} <- cube.cells, reduce: [] do
-      acc -> if (f == face), do: [color | acc], else: acc
+    with cells <- cube.cells do
+      [
+        cell(cells, face, 1, 1), cell(cells, face, 1, 2), cell(cells, face, 1, 3),
+        cell(cells, face, 2, 1), cell(cells, face, 2, 2), cell(cells, face, 2, 3),
+        cell(cells, face, 3, 1), cell(cells, face, 2, 2), cell(cells, face, 3, 3)
+      ]
     end
   end
 
   def row(cube, face, row) do
-    for {{f, r, c}, color} <- cube.cells, reduce: [] do
-      acc -> if ((f == face) && (r == row)), do: [color | acc], else: acc
+    with cells <- cube.cells do
+      [cell(cells, face, row, 1), cell(cells, face, row, 2), cell(cells, face, row, 3)]
     end
   end
 
   def col(cube, face, col) do
-    for {{f, r, c}, color} <- cube.cells, reduce: [] do
-      acc -> if ((f == face) && (c == col)), do: [color | acc], else: acc
+    with cells <- cube.cells do
+      [cell(cells, face, 1, col), cell(cells, face, 2, col), cell(cells, face, 3, col)]
     end
   end
 
-  def cell(cube, face, row, col) do
-    Map.get(cube.cells, {face, row, col})
+  def cell(%__MODULE__{cells: cells}, face, row, col) do
+    cell(cells, face, row, col)
+  end
+
+  def cell(cells, face, row, col) when is_map(cells) do
+    Map.get(cells, {face, row, col})
   end
 end

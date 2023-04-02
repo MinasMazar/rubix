@@ -23,7 +23,7 @@ defmodule RubixTest do
   test "Rotate: L (left clockwise)" do
     cube = Cube.new()
 
-    Cube.rotate(cube, "L")
+    cube = Cube.rotate(cube, "L")
 
     assert Cube.face(cube, :up) == ~w[Y R R Y R R Y R R]
     assert Cube.face(cube, :front) == ~w[R B B R B B R B B]
@@ -36,7 +36,7 @@ defmodule RubixTest do
   test "Rotate: L' (left counterclockwise)" do
     cube = Cube.new()
 
-    Cube.rotate(cube, "L'")
+    cube = Cube.rotate(cube, "L'")
 
     assert Cube.face(cube, :up) == ~w[B R R B R R B R R]
     assert Cube.face(cube, :front) == ~w[O B B O B B O B B]
@@ -49,7 +49,7 @@ defmodule RubixTest do
   test "Rotate: R (right clockwise)" do
     cube = Cube.new()
 
-    Cube.rotate(cube, "R")
+    cube = Cube.rotate(cube, "R")
 
     assert Cube.face(cube, :up) == ~w[R R B R R B R R B]
     assert Cube.face(cube, :front) == ~w[B B Y B B Y B B Y]
@@ -62,7 +62,7 @@ defmodule RubixTest do
   test "Rotate: R' (right counterclockwise)" do
     cube = Cube.new()
 
-    Cube.rotate(cube, "R'")
+    cube = Cube.rotate(cube, "R'")
 
     assert Cube.face(cube, :up) == ~w[R R Y R R Y R R Y]
     assert Cube.face(cube, :front) == ~w[B B R B B R B B R]
@@ -75,7 +75,7 @@ defmodule RubixTest do
   test "Rotate: U (up clockwise)" do
     cube = Cube.new()
 
-    Cube.rotate(cube, "U")
+    cube = Cube.rotate(cube, "U")
 
     assert Cube.face(cube, :up) == ~w[R R R R R R R R R]
     assert Cube.face(cube, :front) == ~w[G G G B B B B B B B]
@@ -88,7 +88,7 @@ defmodule RubixTest do
   test "Rotate: U' (up counterclockwise)" do
     cube = Cube.new()
 
-    Cube.rotate(cube, "U'")
+    cube = Cube.rotate(cube, "U'")
 
     assert Cube.face(cube, :up) == ~w[R R R R R R R R R]
     assert Cube.face(cube, :front) == ~w[W W W B B B B B B]
@@ -101,7 +101,7 @@ defmodule RubixTest do
   test "Rotate: D (down clockwise)" do
     cube = Cube.new()
 
-    Cube.rotate(cube, "D")
+    cube = Cube.rotate(cube, "D")
 
     assert Cube.face(cube, :up) == ~w[R R R R R R R R R]
     assert Cube.face(cube, :front) == ~w[B B B B B B W W W]
@@ -114,7 +114,7 @@ defmodule RubixTest do
   test "Rotate: D' (down counterclockwise)" do
     cube = Cube.new()
 
-    Cube.rotate(cube, "D'")
+    cube = Cube.rotate(cube, "D'")
 
     assert Cube.face(cube, :up) == ~w[R R R R R R R R R]
     assert Cube.face(cube, :front) == ~w[B B B B B B G G G]
@@ -127,7 +127,7 @@ defmodule RubixTest do
   test "Rotate: F (front clockwise)" do
     cube = Cube.new()
 
-    Cube.rotate(cube, "F")
+    cube = Cube.rotate(cube, "F")
 
     assert Cube.face(cube, :up) == ~w[R R R R R R W W W]
     assert Cube.face(cube, :front) == ~w[B B B B B B B B B]
@@ -140,7 +140,7 @@ defmodule RubixTest do
   test "Rotate: F' (front counterclockwise)" do
     cube = Cube.new()
 
-    Cube.rotate(cube, "F'")
+    cube = Cube.rotate(cube, "F'")
 
     assert Cube.face(cube, :up) == ~w[R R R R R R G G G]
     assert Cube.face(cube, :front) == ~w[B B B B B B B B B]
@@ -153,7 +153,7 @@ defmodule RubixTest do
   test "Rotate: B (back clockwise)" do
     cube = Cube.new()
 
-    Cube.rotate(cube, "B")
+    cube = Cube.rotate(cube, "B")
 
     assert Cube.face(cube, :up) == ~w[G G G R R R R R R]
     assert Cube.face(cube, :front) == ~w[B B B B B B B B B]
@@ -166,7 +166,7 @@ defmodule RubixTest do
   test "Rotate: B' (back counterclockwise)" do
     cube = Cube.new()
 
-    Cube.rotate(cube, "B'")
+    cube = Cube.rotate(cube, "B'")
 
     assert Cube.face(cube, :up) == ~w[W W W R R R R R R]
     assert Cube.face(cube, :front) == ~w[B B B B B B B B B]

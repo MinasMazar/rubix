@@ -31,7 +31,7 @@ defmodule Rubix.Cube do
       [
         cell(cells, face, 1, 1), cell(cells, face, 1, 2), cell(cells, face, 1, 3),
         cell(cells, face, 2, 1), cell(cells, face, 2, 2), cell(cells, face, 2, 3),
-        cell(cells, face, 3, 1), cell(cells, face, 2, 2), cell(cells, face, 3, 3)
+        cell(cells, face, 3, 1), cell(cells, face, 3, 2), cell(cells, face, 3, 3)
       ]
     end
   end

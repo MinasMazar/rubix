@@ -31,6 +31,12 @@ defmodule Rubix.Cube.Rotations do
       {:left, 1, 1} => {:back, 1, 1}, {:left, 1, 2} => {:back, 1, 2}, {:left, 1, 3} => {:back, 1, 3},
       {:back, 1, 1} => {:right, 1, 1}, {:back, 1, 2} => {:right, 1, 2}, {:back, 1, 3} => {:right, 1, 3},
       {:right, 1, 1} => {:front, 1, 1}, {:right, 1, 2} => {:front, 1, 2}, {:right, 1, 3} => {:front, 1, 3}
+    },
+    "U'" => %{
+      {:front, 1, 1} => {:right, 1, 1}, {:front, 1, 2} => {:right, 1, 2}, {:front, 1, 3} => {:right, 1, 3},
+      {:left, 1, 1} => {:front, 1, 1}, {:left, 1, 2} => {:front, 1, 2}, {:left, 1, 3} => {:front, 1, 3},
+      {:back, 1, 1} => {:left, 1, 1}, {:back, 1, 2} => {:left, 1, 2}, {:back, 1, 3} => {:left, 1, 3},
+      {:right, 1, 1} => {:back, 1, 1}, {:right, 1, 2} => {:back, 1, 2}, {:right, 1, 3} => {:back, 1, 3}
     }
   }
   @rotations Map.keys(@rotation_matrix)

@@ -203,4 +203,12 @@ defmodule RubixTest do
 
     refute cube == Cube.new() 
   end
+
+  test "solved?" do
+    unresolved_cube = Cube.shuffle()
+    solved_cube = Cube.new()
+
+    refute Cube.solved?(unresolved_cube)
+    assert Cube.solved?(solved_cube)
+  end
 end

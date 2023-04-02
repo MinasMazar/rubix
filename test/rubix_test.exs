@@ -197,4 +197,10 @@ defmodule RubixTest do
 
     assert cube == Cube.new()
   end
+
+  test "shuffle cube" do
+    cube = Cube.shuffle()
+
+    refute cube == Cube.new() 
+  end
 end

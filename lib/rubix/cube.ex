@@ -1,5 +1,7 @@
 defmodule Rubix.Cube do
-  defdelegate rotate(cube, rotation), to: Rubix.Cube.Rotations
+  alias Rubix.Cube.Rotations
+  defdelegate rotate(cube, rotation), to: Rotations
+  defdelegate rotations(), to: Rotations
 
   defstruct [
     cells: %{
@@ -25,6 +27,12 @@ defmodule Rubix.Cube do
   ]
 
   def new, do: %__MODULE__{}
+
+  def shuffle(n \\ 999) do
+    for _ <- (1..n), reduce: new() do
+      cube -> rotate(cube, Enum.random(rotations))
+    end
+  end
 
   def face(cube, face) do
     with cells <- cube.cells do

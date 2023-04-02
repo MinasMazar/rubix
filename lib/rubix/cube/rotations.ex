@@ -89,6 +89,8 @@ defmodule Rubix.Cube.Rotations do
     cube
   end
 
+  def rotations, do: @rotations
+
   defp copy_cell(source, destination, {from, to}) do
     with origin_cell <- Map.get(source, from) do
       Logger.debug("New cell #{origin_cell} [to #{inspect to} from #{inspect from}]")

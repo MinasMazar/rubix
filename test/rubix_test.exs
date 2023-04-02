@@ -52,7 +52,7 @@ defmodule RubixTest do
     cube = Cube.rotate(cube, "R")
 
     assert Cube.face(cube, :up) == ~w[R R B R R B R R B]
-    assert Cube.face(cube, :front) == ~w[B B Y B B Y B B Y]
+    assert Cube.face(cube, :front) == ~w[B B O B B O B B O]
     assert Cube.face(cube, :back) == ~w[R Y Y R Y Y R Y Y]
     assert Cube.face(cube, :left) == ~w[W W W W W W W W W]
     assert Cube.face(cube, :right) == ~w[G G G G G G G G G]

@@ -175,4 +175,26 @@ defmodule RubixTest do
     assert Cube.face(cube, :right) == ~w[G G R G G R G G R]
     assert Cube.face(cube, :down) == ~w[O O O O O O G G G]
   end
+
+  test "Multiple rotations and their inverse must return the initial cube" do
+    cube = Cube.new()
+
+    cube =
+      cube
+       |> Cube.rotate("R")
+       |> Cube.rotate("L")
+       |> Cube.rotate("U")
+       |> Cube.rotate("F")
+       |> Cube.rotate("D")
+       |> Cube.rotate("B")
+
+       |> Cube.rotate("B'")
+       |> Cube.rotate("D'")
+       |> Cube.rotate("F'")
+       |> Cube.rotate("U'")
+       |> Cube.rotate("L'")
+       |> Cube.rotate("R'")
+
+    assert cube == Cube.new()
+  end
 end
